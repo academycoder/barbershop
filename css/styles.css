@@ -11,15 +11,55 @@ body {
 
 	background-color: #000000;
 	background-image: url("../img/fone.jpg");
-	background-position: top center;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; 
+}
+
+/* ВРЕМЕННЫЕ СТИЛИ */
+/* html,
+body {
+	min-width: 1122px;
+	min-height: 1750px;
+} */
+
+.bg-light {
+	background-color: #f8f5f2;
+	background-image: url("../img/bg-light.jpg");
+	background-position: 0 0;
+	background-repeat: repeat;
+	color: #000;
 }
 
 a {
 	text-decoration: none;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+	position: absolute;
+
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+
+	white-space: nowrap;
+
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
 .button {
+	display: inline-block;
+	padding: 10px 30px;
+	margin-right: 18px;
 	font: inherit;
 
 	text-align: center;
@@ -30,7 +70,7 @@ a {
 	background-color: #000000;
 	border: none;
 	outline: none;
-	padding: 16px 52px;
+	cursor: pointer;
 }
 
 .button:hover,
@@ -39,20 +79,90 @@ a {
 	background-color: #663d15;
 }
 
+.button.disabled,
+.button:disabled {
+	cursor: default;
+	opacity: 0.5;
+	background-color: #000;
+}
+
 .main-navigation {
 	font-size: 16px;
 	line-height: 20px;
 	color: #ffffff;
 	background-color: #000000;
+	display: flex;
+	display:-ms-flexbox;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	align-items: center;
+	-ms-flex-align: center;
+}
+
+.main-navigation-catalog {
+	flex-direction: row;
+}
+
+.main-header-logo {
+	order: 1;
+}
+
+.catalog-logo {
+	order: 0;
+	width: 140px;
 }
 
 .site-navigation,
 .user-navigation {
 	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-navigation {
+	width: 620px;
+
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.user-navigation {
+	max-width: 140px;
+}
+
+.user-navigation .login-link {
+	padding-left: 50px;
+	position: relative;
+}
+
+.login-link::before {
+	content: "";
+	
+	position: absolute;
+	top: 27px;
+	left: 24px;
+
+	width: 16px;
+	height: 18px;
+
+	background-image: url("../img/login-arrow.svg");
+	background-repeat: no-repeat;
+	background-position: 0 0;
+
+	opacity: 0.3;
+}
+
+.login-link:hover::before,
+.login-link:focus::before,
+.login-link:active::before {
+	opacity: 1;
 }
 
 .site-navigation a,
 .user-navigation a {
+	display: block;
+	padding: 25px 20px;
 	color: #ffffff;
 }
 
@@ -63,41 +173,391 @@ a {
 	background-color: #242424;
 }
 
+.site-navigation-current a {
+	border-bottom: 4px solid #fff;
+}
+
 .features-list {
 	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	display:-ms-flexbox;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+
+.features {
+	margin-bottom: 64px;
 }
 
 .feature-item {
 	text-align: center;
+	width: 300px;
+	background-color: rgba(255,0,0,0.2);
 }
 
 .feature-item h3 {
+	position: relative;
 	font-size: 30px;
 	line-height: 42px;
+	margin: 0;
+	margin-bottom: 60px;
+}
+
+.feature-item h3::after {
+	position: absolute;
+
+	content: "";
+
+	background-color: #fff;
+
+	width: 20px;
+	height: 20px;
+
+	bottom: -30px;
+	left: 50%;
+	margin-left: -10px;
+
+	transform: rotate(45deg);
+}
+
+.feature-item p {
+	margin: 0 18px;
 }
 
 .index-columns {
 	color: #000000;
 	background-color: #f8f5f2;
-	background-image: url("../img/bg-light.jpg");
-	background-position: 0 0;
-	background-repeat: repeat;
-}
-
-.index-columns h2 {
-	font-size: 30px;
-	line-height: 42px;
+	background-image:
+		url("../img/line.png"),
+		url("../img/bg-light.jpg");
+		
+	background-position: center, 0 0;
+	background-repeat: no-repeat, repeat;
+	padding: 45px 80px 50px;
+	display: flex;
+	display:-ms-flexbox;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	margin-bottom: 35px;
 }
 
 .news-list {
 	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.news-item {
+	margin-bottom: 20px;
 }
 
 .news-item time {
 	text-transform: none;
 }
 
+.news-item p {
+	margin: 0;
+}
+
+.gallery-container {
+	position: relative;
+	height: 260px;
+}
+
+.news h2,
+.gallery h2 {
+	margin: 0 auto;
+}
+
+.index-columns h2 {
+	font-size: 30px;
+	line-height: 42px;
+	margin-bottom: 20px;
+}
+
+.gallery figure {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .gallery-content {
 	background-color: #cccccc;
 	border: 7px solid #ffffff;
+	height: 164px;
+	margin: 0;
 }
+
+.gallery-button {
+	width: 140px;
+	box-sizing: border-box;
+	margin: 0;
+	position: absolute;
+	bottom: 8px;
+}
+
+.gallery-button-back {
+	left: 0;
+}
+
+.gallery-button-next {
+	right: 0;
+}
+
+.appointment-item {
+	width: 140px;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.appointment-item input {
+	font: inherit;
+	background-color: transparent;
+	border: 2px solid #000000;
+}
+
+.appointment-item input:focus {
+	border: 2px solid #663d15;
+	outline: none;
+}
+
+.appointment-item label {
+	display: block;
+	margin-bottom: 4px;
+	margin-left: 15px;
+}
+
+.appointment-info {
+	margin: 0;
+	margin-bottom: 12px;
+}
+
+.appointment-form {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.main-footer {
+	background-color: #212121;
+	color: #ffffff;
+	background-image: url("../img/bg-dark.jpg");
+	background-position: 0 0;
+	background-repeat: repeat;
+	margin-top: 65px;
+}
+
+.main-footer .container {
+	display: flex;
+	display:-ms-flexbox;
+}
+
+.footer-contacts {
+	margin: 0;
+	width: 320px;
+	margin-right: 80px;
+}
+
+.footer-contacts a {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.footer-contacts a:focus,
+.footer-contacts a:hover {
+	text-decoration: none;
+}
+
+.footer-social {
+	text-align: center;
+	width: 145px;
+}
+
+.footer-social ul {
+	list-style: none;
+}
+
+.footer-copyright {
+	text-align: center;
+	width: 150px;
+	margin-left: auto;
+}
+
+.footer-copyright .button:hover,
+.footer-copyright .button:focus {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.social-button {
+	color: #ffffff;
+}
+
+.modal {
+	  color: #000000;
+    background-color: #f8f5f2;
+    background-image: url(../img/bg-light.jpg);
+    background-position: 0 0;
+    background-repeat: repeat;
+}
+
+.modal h2 {
+	font-size: 30px;
+	line-height: 42px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+	font: inherit;
+	color: #000000;
+	text-transform: uppercase;
+
+	background-color: #f9f6f3;
+	border: 2px solid #000000;
+}
+
+.login-form input:focus {
+	border-color: #663d15;
+	outline: none;
+}
+
+.login-checkbox:hover,
+.login-checkbox:focus {
+	color: #663d15;
+}
+
+.restore {
+	color: #000000;
+	text-decoration: underline;
+}
+
+.restore:hover,
+.restore:focus {
+	text-decoration: none;
+}
+
+.page-title {
+	font-size: 30px;
+	line-height: 42px;
+}
+
+.breadcrumbs {
+	list-style: none;
+}
+
+.breadcrumbs-current {
+	color: #aba9a7;
+}
+
+.breadcrumbs a {
+	color: #000;
+}
+
+.filter legend {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.filter ul {
+	list-style: none;
+}
+
+.catalog-item a {
+	color: #000;
+}
+
+.catalog-item b {
+	background-color: #e5e5e5;
+}
+
+.catalog-item a.button {
+	color: #ffffff;
+}
+
+.catalog ul {
+	list-style: none;
+}
+
+.catalog-category {
+	text-transform: none;
+}
+
+.pagination-list,
+.preview-list {
+	list-style: none;
+}
+
+.pagination-item-current a {
+	color: #000;
+	background-color: #fff;
+}
+
+.pagination-item-current a:hover {
+	color: #fff;
+}
+
+.slogan {
+	font-size: 48px;
+	line-height: 48px;
+	text-align: center;
+}
+
+.product-description h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.remedy h2,
+.prices h2,
+.about-us h2 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.container {
+	width: 940px;
+	margin: 0 auto;
+	padding: 0 10px;
+	display: block;
+}
+
+.main-navigation-wrapper {
+	margin-bottom: 60px;
+	width: 100%;
+}
+
+.main-navigation-wrapper .container,
+.main-navigation .container {
+		display: flex;
+		display:-ms-flexbox;
+		justify-content: space-between;
+		-ms-flex-pack: justify;
+}
+/* ----------СЕТОЧНЫЕ СТИЛИ---------- */
+.main-header {
+	margin-bottom: 66px;
+}
+
+.news,
+.contacts {
+	width: 375px;
+	background-color: rgba(0, 255, 0, 0.2);
+}
+
+.gallery,
+.appointment {
+	width: 300px
+}
+/* 
+.main-navigation {
+	Временно для сетки
+	min-height: 285px;
+	background-color: transparent;
+} */
